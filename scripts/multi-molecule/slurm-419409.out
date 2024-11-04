@@ -1,0 +1,31 @@
+/home/bingxing2/ailab/scx6mh7/.conda/envs/dnalm_v2/bin/python: can't open file 'downstream/train_ncrna_lucaone.py': [Errno 2] No such file or directory
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 2) local_rank: 0 (pid: 1934516) of binary: /home/bingxing2/ailab/scx6mh7/.conda/envs/dnalm_v2/bin/python
+Traceback (most recent call last):
+  File "/var/spool/slurmd/job419409/slurm_script", line 8, in <module>
+    sys.exit(main())
+  File "/home/bingxing2/ailab/scx6mh7/.conda/envs/dnalm_v2/lib/python3.8/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/home/bingxing2/ailab/scx6mh7/.conda/envs/dnalm_v2/lib/python3.8/site-packages/torch/distributed/run.py", line 762, in main
+    run(args)
+  File "/home/bingxing2/ailab/scx6mh7/.conda/envs/dnalm_v2/lib/python3.8/site-packages/torch/distributed/run.py", line 753, in run
+    elastic_launch(
+  File "/home/bingxing2/ailab/scx6mh7/.conda/envs/dnalm_v2/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 132, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/bingxing2/ailab/scx6mh7/.conda/envs/dnalm_v2/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 246, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+downstream/train_ncrna_lucaone.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-07-30_20:52:56
+  host      : paraai-n32-h-01-agent-131.paraai-n32-h-01.com
+  rank      : 0 (local_rank: 0)
+  exitcode  : 2 (pid: 1934516)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
