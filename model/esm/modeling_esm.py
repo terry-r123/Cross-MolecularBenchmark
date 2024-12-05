@@ -1087,10 +1087,8 @@ class EsmForSequenceClassification(EsmPreTrainedModel):
         super().__init__(config)
         self.num_labels = config.num_labels
         self.config = config
-
         self.esm = EsmModel(config, add_pooling_layer=False)
         self.classifier = EsmClassificationHead(config)
-
         self.init_weights()
 
     @add_start_docstrings_to_model_forward(ESM_INPUTS_DOCSTRING.format("batch_size, sequence_length"))
