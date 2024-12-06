@@ -251,6 +251,7 @@ def clean_seq(protein_id, seq, return_rm_index=False):
     return new_seq
 # change for LucaOne
 
+
 class SupervisedDataset(Dataset):
     """Dataset for supervised fine-tuning."""
 
@@ -293,6 +294,7 @@ class SupervisedDataset(Dataset):
 
     def __getitem__(self, i) -> Dict[str, torch.Tensor,]:
         return dict(input_ids=self.input_ids[i], labels=self.labels[i])
+
 
 @dataclass
 class DataCollatorForSupervisedDataset(object):
@@ -376,6 +378,7 @@ def train():
     parser = transformers.HfArgumentParser((ModelArguments, DataArguments, TrainingArguments))
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
     set_seed(training_args)
+
     # load tokenizer
     print(training_args.model_type)
     if training_args.model_type == 'rnalm' or  training_args.model_type == 'ntv2':
@@ -457,6 +460,7 @@ def train():
         tokenizer.eos_token = tokenizer.pad_token
     if 'mer' in training_args.token_type:
         data_args.kmer=int(training_args.token_type[0])
+
     # define datasets and data collator
     train_dataset = SupervisedDataset(tokenizer=tokenizer, args=training_args,
                                      data_path=os.path.join(data_args.data_path, data_args.data_train_path), 

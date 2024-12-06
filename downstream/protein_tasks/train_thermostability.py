@@ -211,52 +211,18 @@ class DataCollatorForSupervisedDataset:
         return sequences
 
 
-"""
-Compute metrics used for huggingface trainer.
-"""
 def calculate_metric_with_sklearn(logits: np.ndarray, labels: np.ndarray):
-    logits = torch.from_numpy(logits)
-    labels = torch.from_numpy(labels)
-    pred = dim_zero_cat(logits)
-    target = dim_zero_cat(labels)
-
-    order = pred.argsort(descending=True, dim=1)
-
-
-    target = target.gather(1, order)
-    precision = target.cumsum(1) / torch.ones_like(target).cumsum(1)
-    recall = target.cumsum(1) / (target.sum(1, keepdim=True) + 1e-10)
-
-    is_start = torch.zeros_like(target).bool()
-    is_start[:, 0] = 1
-    is_start = torch.scatter(is_start, 1, order, is_start)
-    
-    order = order + torch.arange(order.shape[0], device=order.device).unsqueeze(1) * order.shape[1]
-    order = order.flatten()
-
-    inv_order = torch.zeros_like(order)
-    inv_order[order] = torch.arange(order.shape[0], device=order.device)
-
-    all_order = pred.flatten().argsort(descending=True)
-    is_start = is_start.flatten()[all_order]
-    all_order = inv_order[all_order]
-
-    precision = precision.flatten()
-    recall = recall.flatten()
-    
-    all_precision = precision[all_order] - \
-                    torch.where(is_start, torch.zeros_like(precision), precision[all_order - 1])
-    all_precision = all_precision.cumsum(0) / is_start.cumsum(0)
-    all_recall = recall[all_order] - \
-                torch.where(is_start, torch.zeros_like(recall), recall[all_order - 1])
-    all_recall = all_recall.cumsum(0) / pred.shape[0]
-    
-    all_f1 = 2 * all_precision * all_recall / (all_precision + all_recall + 1e-10)
-    return { "fmax": all_f1.max().item()}
+    return {
+        "valid_spearman": spearmanr(logits, labels)[0],
+    }
 
 
 def compute_metrics(eval_pred):
     logits, labels = eval_pred
+    if isinstance(logits, tuple): 
+        logits = logits[0]
+    if logits.ndim == 2: 
+        logits = logits.flatten()
     return calculate_metric_with_sklearn(logits, labels)
 
 

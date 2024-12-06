@@ -53,7 +53,7 @@ python downstream/protein_tasks/train_ec.py \
     --tokenizer_name_or_path $TOKENIZER_NAME_OR_PATH \
     --tokenizer_cache_dir /home/bingxing2/ailab/group/ai4bio/hanwenwei/huggingface/ \
     --model_name_or_path $MODEL_NAME_OR_PATH \
-    --data_path /home/bingxing2/ailab/group/ai4bio/public/multi-omics/protein/downstream/ec/ \
+    --data_path /home/bingxing2/ailab/group/ai4bio/public/multi-omics/protein/downstream/thermostability/ \
     --cache_dir $CACHE_DIR  \
     --model_max_length $MODE_MAX_LENGTH \
     --model_type $MODEL_TYPE \
