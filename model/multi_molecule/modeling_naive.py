@@ -222,14 +222,10 @@ class LSTM(nn.Module):
         
         # Pack the sequence
         packed_embedded = pack_padded_sequence(embedded, lengths.cpu(), batch_first=True)
-        
-
 
         packed_output, (hidden, cell) = self.lstm(packed_embedded)
 
-
-        output, output_lengths = pad_packed_sequence(packed_output, batch_first=True)
-        
+        output, output_lengths = pad_packed_sequence(packed_output, batch_first=True) 
 
         output = output[original_idx]
         weights = self.mapping(output)
@@ -273,10 +269,10 @@ class MultiOmicsNaiveClassifier(nn.Module):
 
         return_dict = return_dict if return_dict is not None else self.omics1_config.get('use_return_dict', True)
 
-        # Forward pass through omics1_model (ConvolutionalNetwork)
+        # Forward pass through omics1_model
         omics1_out = self.omics1_model(input_ids, attention_mask)  # Pass input_ids and attention_mask as inputs
 
-        # Forward pass through omics2_model (ConvolutionalNetwork)
+        # Forward pass through omics2_model
         omics2_out = self.omics2_model(omics2_input_ids, omics2_attention_mask)  # Pass omics2_input_ids and omics2_attention_mask as inputs
 
         # Concatenate outputs from omics1 and omics2 models
