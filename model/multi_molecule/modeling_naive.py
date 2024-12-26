@@ -45,6 +45,7 @@ class ResNetBlock(nn.Module):
 
         return out
         
+
 class ResNet(nn.Module):
     '''
         class: ResNet
@@ -54,8 +55,7 @@ class ResNet(nn.Module):
         dropout: 0.1
     '''
     def __init__(self, input_dim=4, hidden_dims=[512, 512, 512, 512, 512, 512, 512, 512], kernel_size=3, stride=1, padding=1,
-                 activation="gelu", short_cut=False, concat_hidden=False, layer_norm=True,
-                 dropout=0.1):
+                 activation="gelu", short_cut=False, concat_hidden=False, layer_norm=True, dropout=0.1):
         super(ResNet, self).__init__()
         if not isinstance(hidden_dims, Sequence):
             hidden_dims = [hidden_dims]
@@ -143,7 +143,6 @@ class ConvolutionalNetwork(nn.Module):
 
     def forward(self, input, mask):
         hiddens = []
-        # input = input.long()
         input = self.embedding(input)
 
         # Expand the mask dimensions to match the input's dimensions for multiplication
@@ -152,7 +151,6 @@ class ConvolutionalNetwork(nn.Module):
         input = input * mask
         layer_input = input
         for layer in self.layers:
-            # print(f"Input shape before conv1d: {layer_input.shape}")
             hidden = layer(layer_input.transpose(1, 2)).transpose(1, 2)
             hidden = self.activation(hidden)
             hidden = hidden * mask
@@ -160,7 +158,7 @@ class ConvolutionalNetwork(nn.Module):
             layer_input = hidden
 
         hidden = hiddens[-1]
-        # Do Attention pooling
+        # Attention pooling
 
         weights = self.mapping(hidden)
         weights = weights + (1 - mask) * -1e9
@@ -201,7 +199,7 @@ class LSTM(nn.Module):
         self.lstm = nn.LSTM(hidden_dim, hidden_dim, num_layers, batch_first=True, dropout=dropout,
                             bidirectional=True)
 
-        # attention pooling
+        # Attention pooling
         self.mapping = nn.Linear(hidden_dim * 2, 1)
         self.softmax = nn.Softmax(dim=-1)
 
@@ -241,31 +239,6 @@ class LSTM(nn.Module):
         return hidden
 
 MODEL_CLASS={"cnn":ConvolutionalNetwork,"resnet":ResNet,"lstm":LSTM}
-
-# class Classifier(nn.Module):
-#     def __init__(self, model_type, num_classes,vocab_size=9):
-#         super(Classifier, self).__init__()
-#         self.feature_extractor_1 = MODEL_CLASS[model_type](input_dim=vocab_size)
-#         self.feature_extractor_2 = MODEL_CLASS[model_type](input_dim=vocab_size)
-        
-#         self.hidden_dim = self.feature_extractor_1.output_dim 
-#         self.num_classes = num_classes
-
-#         # MLP layers
-#         self.mlp = nn.Sequential(
-#             nn.Linear(self.hidden_dim * 2, self.hidden_dim),
-#             nn.ReLU(),
-#             nn.Linear(self.hidden_dim, self.num_classes)
-#         )
-
-#     def forward(self, input_ids_1,mask_1,input_ids_2,mask_2):
-#         mask_1 = mask_1.unsqueeze(-1).float()
-#         mask_2 = mask_2.unsqueeze(-1).float()
-#         hidden_1 = self.feature_extractor_1(input_ids_1,mask_1)
-#         hidden_2 = self.feature_extractor_2(input_ids_2,mask_2)
-#         hidden = torch.cat([hidden_1, hidden_2], dim=-1)
-#         logits = self.mlp(hidden)
-#         return logits
 
 
 class MultiOmicsNaiveClassifier(nn.Module):
@@ -346,6 +319,7 @@ class MultiOmicsNaiveClassifier(nn.Module):
             hidden_states=None,
             attentions=None,
         )
+
 
 class RNARNANaiveClassifier(nn.Module):
     def __init__(self, omics1_config, omics2_config, omics1_model, omics2_model, use_features, weight=None):
@@ -440,6 +414,7 @@ class RNARNANaiveClassifier(nn.Module):
             attentions=None,
         )
 
+
 class RNADNANaiveClassifier(nn.Module):
     def __init__(self, omics1_config, omics2_config, omics1_model, omics2_model, use_features, weight=None):
         super().__init__()
@@ -524,34 +499,3 @@ class RNADNANaiveClassifier(nn.Module):
             hidden_states=None,
             attentions=None,
         )
-    
-
-# def tokenize(seq):
-#     mapping = {
-#         "A": 0,
-#         "C": 1,
-#         "G": 2,
-#         "U": 3,
-#         "N": 4
-#     }
-#     ids = []
-#     for s in seq:
-#         ids.append(mapping[s])
-#     return torch.tensor(ids).unsqueeze(0)
-
-# import torchsummary
-# if __name__ == "__main__":
-#     model = Classifier("cnn", num_classes=2,vocab_size=9)
-
-#     seq1 = "AGCUGUCUAUGUCUAGGAC"
-#     seq2 = "AGCUGUCUAUGUCUAGGAC"
-    
-#     input_ids1 = tokenize(seq1)
-#     input_ids2 = tokenize(seq2)
-#     mask_1 = torch.ones_like(input_ids1)
-#     mask_2 = torch.ones_like(input_ids2)
-    
-#     output = model(input_ids1,mask_1,input_ids2,mask_2)
-    
-#     print("Finish testing")
-    
