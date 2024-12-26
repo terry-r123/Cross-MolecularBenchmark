@@ -1,17 +1,12 @@
 #!/bin/bash
 
-# This is your argument
-
-# 基础环境设置
 gpu_device="2"
 master_port=41611
 nproc_per_node=2
 USE_SLURM='2'
 partition='ailab'
-quotatype='vip_gpu_ailab_low' # vip_gpu_ailab
-run_type='sbatch' #choice in [srun, sbatch]
-
-
+quotatype='vip_gpu_ailab_low'
+run_type='sbatch'
 
 task='protein-protein'
 task_type='multi'
@@ -46,20 +41,16 @@ omics2_model_type='resnet'
 omics1_token='single'
 omics2_token='single'
 
-omics1_pos='ape'
-omics2_pos='ape'
-
 batch_size=2
 gradient_accumulation=8
 omics1_model_max_length=1024
 omics2_model_max_length=1024
-#lr=3e-5
 data=''
 
 OMICS1_MODEL_PATH=${data_root}multi-omics/protein/model/esm1b_t33_650M_UR50S
 OMICS2_MODEL_PATH=${data_root}multi-omics/protein/model/esm1b_t33_650M_UR50S
 
-for seed in 42
+for seed in 42 666 3407
 do
     for lr in 9e-6 7e-6 5e-6 3e-6 3e-5 5e-5
     do
@@ -102,8 +93,6 @@ do
             --omics2_token_type ${omics2_token} \
             --omics1_model_type ${omics1_model_type} \
             --omics2_model_type ${omics2_model_type} \
-
-    
     done
 done
 
