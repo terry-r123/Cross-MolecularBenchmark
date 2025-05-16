@@ -1,0 +1,4 @@
+{
+  "model_max_length": 1000000000000000000,
+  "tokenizer_class": "EsmTokenizer"
+}
