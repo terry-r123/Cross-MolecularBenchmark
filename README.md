@@ -34,11 +34,21 @@ The full list of current task names are :
 ·CRISPER OFF Target  
 ·RNA-Protein Interaction  
 
-# Models
-[]  
+### Results of the unpaired cross-molecular experiments
+![image](https://github.com/user-attachments/assets/e6b0fe78-9eb6-42d9-b486-b1995aec6c18)
+### Results of the native multi-molecular experiments
+![image](https://github.com/user-attachments/assets/e79dc859-a429-4006-bd33-f4c8bee6993a)
+### Results of the native multi-molecular experiments
+![image](https://github.com/user-attachments/assets/81cb7b79-5022-4c64-bbd6-21a2c88409bf)
 
 And the list of available embedders/models used for training on the tasks are :
-
+·DNABERT2  
+·NTv2
+·RNA-FM  
+·BEACON-B  
+·ESM-1b  
+·ESM-2  
+·LucaOne  
 ## Model settings
 []  
 
