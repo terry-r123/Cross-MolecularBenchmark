@@ -37,6 +37,12 @@ git clone https://github.com/terry-r123/Multi-omicsBechmark.git
 * RNA Secondary Structure
 * siRNA Efficiency
 
+### 🧬 Protein Tasks
+
+* Thermostability
+* EC
+* Contact
+
 ### 🔗 Cross-Molecular Tasks
 
 * DNA-Protein Folding
@@ -52,15 +58,38 @@ git clone https://github.com/terry-r123/Multi-omicsBechmark.git
 ---
 
 ## 📂 Data Structure
+The project’s data directory is organized as follows:
 
-*Details coming soon (e.g., how data folders are organized, input/output formats, etc.)*
-
+```
+├── downstream/
+│   ├── dna_tasks                      
+│   ├── rna_tasks                
+│   └── prot_tasks
+│   └── ......                  
+├── model/
+│   ├── dnabert2                     
+│   ├── ntv2      
+│   ├── rnafm                 
+│   └── rnalm
+│   └── esm1b
+│   └── esm2
+│   └── ......       
+├── scripts/
+│   ├── single_molecule                    
+│   ├── multi_molecule                  
+│   └── cross_molecule                
+└── README.md                                
+```
 ---
 
 ## 🧠 Models
 
 **Available models/embedders used in COMET:**
-*Details coming soon*
+```
+Common Biology Foundation Model: DNABERT2, NTv2, RnaFM, BEACON, ESM1b, ESM-2
+Naive Model: CNN, Resnet, LSTM
+Unify Biology Foundation Model: LucaOne   
+```
 
 ### ⚙️ Model Settings
 
