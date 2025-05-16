@@ -96,12 +96,12 @@ Unify Biology Foundation Model: LucaOne
 
 | Models | name | token | pos | length| 
 | --- | --- | --- | ---| --- |
-|[DNABERT2](https://doi.org/10.48550/arXiv.2204.00300) | dnabert2 | single  | alibi| 1024| 
-|[NTv2](https://doi.org/10.48550/arXiv.2204.00300) | ntv2 | single  | rope| 1024| 
-|[RNA-FM](https://doi.org/10.48550/arXiv.2204.00300) | rna-fm | single  | ape| 1024| 
-|[BEACON-B](https://arxiv.org/abs/2406.10391)| rnalm | single | alibi | 1026 |
-|[ESM1b](https://doi.org/10.48550/arXiv.2204.00300) | esm1b | single  | ape| 1024| 
-|[ESM2](https://doi.org/10.48550/arXiv.2204.00300) | esm-2 | single  | ape| 1024| 
+|DNABERT2| dnabert2 | single  | alibi| 1024| 
+|NTv2 | ntv2 | single  | rope| 1024| 
+|RNA-FM | rna-fm | single  | ape| 1024| 
+|BEACON-B| rnalm | single | alibi | 1026 |
+|ESM1b | esm1b | single  | ape| 1024| 
+|ESM2 | esm-2 | single  | ape| 1024| 
 ---
 
 # Results
