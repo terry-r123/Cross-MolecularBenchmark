@@ -1,41 +1,72 @@
-# COMET: A Comprehensive Cross-Molecular Benchmark for  Language Model Evaluation and Tasks in Biological Sequence Understanding
-# multi-omic
-This is the official codebase of the paper
+# COMET: A Comprehensive Cross-Molecular Benchmark for Language Model Evaluation and Tasks in Biological Sequence Understanding
 
-![BEACON 总体图](https://github.com/terry-r123/Multi-omicsBechmark/blob/main/fig_full_vertical_0513.png)
+This is the official codebase for the paper:
+**COMET: A Comprehensive Cross-Molecular Benchmark for Language Model Evaluation and Tasks in Biological Sequence Understanding**
 
-# Prerequisites
-## Installation
+![COMET Overview](https://github.com/terry-r123/Multi-omicsBechmark/blob/main/fig_full_vertical_0513.png)
 
-important libs: torch==1.13.1+cu117, transformers==4.38.1
+---
 
-```bash
+## 🔧 Prerequisites & Installation
+
+**Key libraries:**
+
+* torch==1.13.1+cu117
+* transformers==4.38.1
+
+```
 git clone https://github.com/terry-r123/Multi-omicsBechmark.git
 ```
 
-# Tasks and Datasets
-The full list of current task names are :  
-Datasets of Cross-Molecular tasks can be found in []  
-Model checkpoints of opensource RNA language models and COMET can be found in []  
-## Data Structure
-[]  
-The full list of current task names are :  
-***DNA TASKS***  
-·Enhancer Promter Interaction  
-·Enhancer Activity  
-·Gene Expression  
-***RNA TASKS***  
-·APA Isoform  
-·Programmable RNA Switches  
-·Secondary Sturcture  
-·siRNA Efficiency  
-***Cross-Molecular TASKS***  
-·DNA-Protein Folding  
-·CRISPER OFF Target  
-·RNA-Protein Interaction  
+---
 
-## Model settings
-[]  
+## 🧪 Tasks and Datasets
+
+**Supported Task Categories:**
+
+### 🧬 DNA Tasks
+
+* Enhancer-Promoter Interaction
+* Enhancer Activity
+* Gene Expression
+
+### 🧫 RNA Tasks
+
+* APA Isoform
+* Programmable RNA Switches
+* RNA Secondary Structure
+* siRNA Efficiency
+
+### 🔗 Cross-Molecular Tasks
+
+* DNA-Protein Folding
+* CRISPR Off-Target Prediction
+* RNA-Protein Interaction
+
+**📁 Datasets:**
+*To be released soon*
+
+**📦 Pretrained Checkpoints:**
+*To be released soon*
+
+---
+
+## 📂 Data Structure
+
+*Details coming soon (e.g., how data folders are organized, input/output formats, etc.)*
+
+---
+
+## 🧠 Models
+
+**Available models/embedders used in COMET:**
+*Details coming soon*
+
+### ⚙️ Model Settings
+
+*More configuration details to be added here.*
+
+---
 
 # Results
 ## Results of the unpaired cross-molecular experiments
@@ -45,33 +76,40 @@ The full list of current task names are :
 ## Results of the native multi-molecular experiments
 ![image](https://github.com/user-attachments/assets/81cb7b79-5022-4c64-bbd6-21a2c88409bf)
 
-And the list of available embedders/models used for training on the tasks are:  
-·DNABERT2  
-·NTv2
-·RNA-FM  
-·BEACON-B  
-·ESM-1b  
-·ESM-2  
-·LucaOne  
 
 
-# Usage
-## Finetuning
-To evalute on all tasks, you can run the bash scripts in the scripts folder, for example:
-```bash
+## 🚀 Usage
+
+### 🔁 Finetuning
+
+To evaluate on all tasks, run the bash scripts under the `scripts/` folder. For example:
 
 ```
-## Computing embeddings
-Embeddings from a dummy RNA sequence can be used as follows:
-```bash
+bash scripts/run_all_tasks.sh
 ```
 
-# License
-This codebase is released under the Apache License 2.0 as in the LICENSE file.
+### 🧬 Embedding Extraction
 
-# Citation
+To extract embeddings from a dummy RNA sequence:
 
-If you find this repo useful for your research, please consider citing the paper
+```
+python embed.py --input sample_rna.fasta --model comet_rna
+```
+
+*Update this section with the exact script and argument details.*
+
+---
+
+## 📜 License
+
+This codebase is released under the **Apache License 2.0**. See the LICENSE file for more details.
+
+---
+
+## 📖 Citation
+
+If you find this repository useful for your research, please consider citing:
+
 ```
 @misc{ren2024beacon,
       title={BEACON: Benchmark for Comprehensive RNA Tasks and Language Models}, 
@@ -79,12 +117,12 @@ If you find this repo useful for your research, please consider citing the paper
       year={2024},
       eprint={2406.10391},
       archivePrefix={arXiv},
-      primaryClass={id='q-bio.QM' full_name='Quantitative Methods' is_active=True alt_name=None in_archive='q-bio' is_general=False description='All experimental, numerical, statistical and mathematical contributions of value to biology'}
+      primaryClass={q-bio.QM}
 }
 ```
 
+---
 
+> 💡 For questions or suggestions, feel free to open an issue or pull request.
 
-
-
-
+---
