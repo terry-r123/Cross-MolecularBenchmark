@@ -130,20 +130,6 @@ This codebase is released under the **Apache License 2.0**. See the LICENSE file
 
 ---
 
-## 📖 Citation
-
-If you find this repository useful for your research, please consider citing:
-
-```
-@misc{ren2024beacon,
-      title={BEACON: Benchmark for Comprehensive RNA Tasks and Language Models}, 
-      author={Yuchen Ren and Zhiyuan Chen and Lifeng Qiao and Hongtai Jing and Yuchen Cai and Sheng Xu and Peng Ye and Xinzhu Ma and Siqi Sun and Hongliang Yan and Dong Yuan and Wanli Ouyang and Xihui Liu},
-      year={2024},
-      eprint={2406.10391},
-      archivePrefix={arXiv},
-      primaryClass={q-bio.QM}
-}
-```
 
 ---
 
