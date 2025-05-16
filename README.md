@@ -77,7 +77,8 @@ The project’s data directory is organized as follows:
 ├── scripts/
 │   ├── single_molecule                    
 │   ├── multi_molecule                  
-│   └── cross_molecule                
+│   └── cross_molecule
+│   └── opensources               
 └── README.md                                
 ```
 ---
@@ -93,8 +94,14 @@ Unify Biology Foundation Model: LucaOne
 
 ### ⚙️ Model Settings
 
-*More configuration details to be added here.*
-
+| Models | name | token | pos | length| 
+| --- | --- | --- | ---| --- |
+|[DNABERT2](https://doi.org/10.48550/arXiv.2204.00300) | dnabert2 | single  | alibi| 1024| 
+|[NTv2](https://doi.org/10.48550/arXiv.2204.00300) | ntv2 | single  | rope| 1024| 
+|[RNA-FM](https://doi.org/10.48550/arXiv.2204.00300) | rna-fm | single  | ape| 1024| 
+|[BEACON-B](https://arxiv.org/abs/2406.10391)| rnalm | single | alibi | 1026 |
+|[ESM1b](https://doi.org/10.48550/arXiv.2204.00300) | esm1b | single  | ape| 1024| 
+|[ESM2](https://doi.org/10.48550/arXiv.2204.00300) | esm-2 | single  | ape| 1024| 
 ---
 
 # Results
@@ -111,23 +118,11 @@ Unify Biology Foundation Model: LucaOne
 
 ### 🔁 Finetuning
 
-To evaluate on all tasks, run the bash scripts under the `scripts/` folder. For example:
+To evaluate on specific task, run the bash scripts under the `scripts/` folder. Take cross-molecule EC Task for example:
 
 ```
-bash scripts/run_all_tasks.sh
+bash scripts/cross-molecule/ec.sh
 ```
-
-### 🧬 Embedding Extraction
-
-To extract embeddings from a dummy RNA sequence:
-
-```
-python embed.py --input sample_rna.fasta --model comet_rna
-```
-
-*Update this section with the exact script and argument details.*
-
----
 
 ## 📜 License
 
