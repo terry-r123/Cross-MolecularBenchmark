@@ -41,7 +41,7 @@ The full list of current task names are :
 ### Results of the native multi-molecular experiments
 ![image](https://github.com/user-attachments/assets/81cb7b79-5022-4c64-bbd6-21a2c88409bf)
 
-And the list of available embedders/models used for training on the tasks are :
+And the list of available embedders/models used for training on the tasks are:  
 ·DNABERT2  
 ·NTv2
 ·RNA-FM  
