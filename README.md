@@ -14,33 +14,33 @@ git clone https://github.com/terry-r123/Multi-omicsBechmark.git
 ```
 
 # Tasks and Datasets
-The full list of current task names are :
-Datasets of Cross-Molecular tasks can be found in []
-Model checkpoints of opensource RNA language models and COMET can be found in []
+The full list of current task names are :  
+Datasets of Cross-Molecular tasks can be found in []  
+Model checkpoints of opensource RNA language models and COMET can be found in []  
 ## Data Structure
-[]
-The full list of current task names are :
-***DNA TASKS***
-·Enhancer Promter Interaction
-·Enhancer Activity
-·Gene Expression
-***RNA TASKS***
-·APA Isoform
-·Programmable RNA Switches
-·Secondary Sturcture
-·siRNA Efficiency
-***Cross-Molecular TASKS***
-·DNA-Protein Folding 
-·CRISPER OFF Target
-·RNA-Protein Interaction
+[]  
+The full list of current task names are :  
+***DNA TASKS***  
+·Enhancer Promter Interaction  
+·Enhancer Activity  
+·Gene Expression  
+***RNA TASKS***  
+·APA Isoform  
+·Programmable RNA Switches  
+·Secondary Sturcture  
+·siRNA Efficiency  
+***Cross-Molecular TASKS***  
+·DNA-Protein Folding  
+·CRISPER OFF Target  
+·RNA-Protein Interaction  
 
 # Models
-[]
+[]  
 
 And the list of available embedders/models used for training on the tasks are :
 
 ## Model settings
-[]
+[]  
 
 # Usage
 ## Finetuning
