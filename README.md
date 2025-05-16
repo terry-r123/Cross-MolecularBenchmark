@@ -50,10 +50,8 @@ git clone https://github.com/terry-r123/Multi-omicsBechmark.git
 * RNA-Protein Interaction
 
 **📁 Datasets:**
-*To be released soon*
+[*Huggingface*](https://huggingface.co/datasets/AI4Biology/Cross-Molecular-Benchmark)
 
-**📦 Pretrained Checkpoints:**
-*To be released soon*
 
 ---
 
